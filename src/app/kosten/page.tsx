@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import FAQSchema from '@/components/FAQSchema';
+import Sources from '@/components/Sources';
 import { Euro, Zap, Home, TrendingUp } from 'lucide-react';
 
 export const revalidate = 3600;
@@ -29,7 +30,7 @@ const faqItems = [
   {
     question: 'Hoeveel kost een warmtepomp gemiddeld?',
     answer:
-      'De kosten van een warmtepomp variëren sterk afhankelijk van het type. Een lucht-lucht systeem kost €1.500-€4.000, terwijl een bodem-water warmtepomp €15.000-€25.000 kan kosten. Inclusief installatie moet je rekenen op 20-30% extra.',
+      'De kosten van een warmtepomp variëren sterk afhankelijk van het type. Een lucht-lucht systeem kost €1.500-€4.000, terwijl een bodem-water warmtepomp €15.000-€30.000 kan kosten. Inclusief installatie moet je rekenen op 20-30% extra.',
   },
   {
     question: 'Wat zijn installatiekosten en hoe veel bedragen deze?',
@@ -39,12 +40,12 @@ const faqItems = [
   {
     question: 'Krijg ik subsidie of teruggave voor een warmtepomp?',
     answer:
-      'Ja, in Nederland zijn er verschillende steunregelingen. De ISDE-regeling (Investeringssubsidie Duurzame Energie) kan tot €6.000 subsidie geven. Ook zijn er belastingvoordelen en in sommige gemeenten aanvullende regelingen.',
+      'Ja, in Nederland zijn er verschillende steunregelingen. De ISDE-regeling (Investeringssubsidie Duurzame Energie) berekent de subsidie als volgt: startbedrag €1.025 + €225 per kW + €200 energielabelbonus (voor A+++). Voor een 8kW A+++ systeem is dit bijvoorbeeld €3.025; voor een 6kW bodem-water kan dit tot ~€4.425 zijn. Ook zijn er belastingvoordelen en in sommige gemeenten aanvullende regelingen.',
   },
   {
     question: 'Hoeveel bespaar ik jaarlijks op stookkosten?',
     answer:
-      'De jaarlijkse besparing hangt af van je huistype, huidiende verwarming en energiegebruik. Gemiddeld besparen huishoudens €800-€2.000 per jaar op stookkosten. Bij goede isolatie en optimaal gebruik kan dit oplopen tot €3.000.',
+      'De jaarlijkse besparing hangt af van je huistype, huidiende verwarming en energiegebruik. Gemiddeld besparen huishoudens €700-€1.400 per jaar op stookkosten. Bij goede isolatie en optimaal gebruik kan dit oplopen tot €2.000.',
   },
   {
     question: 'Wat zijn de onderhoudskosten van een warmtepomp?',
@@ -68,14 +69,14 @@ const heatPumpTypes = [
   },
   {
     name: 'Hybride',
-    minPrice: 3500,
+    minPrice: 4000,
     maxPrice: 7000,
     efficiency: 'Zeer hoog',
     installation: 'Gemiddeld',
   },
   {
     name: 'Lucht-water',
-    minPrice: 6000,
+    minPrice: 5000,
     maxPrice: 12000,
     efficiency: 'Hoog',
     installation: 'Gemiddeld',
@@ -90,7 +91,7 @@ const heatPumpTypes = [
   {
     name: 'Bodem-water',
     minPrice: 15000,
-    maxPrice: 25000,
+    maxPrice: 30000,
     efficiency: 'Zeer hoog',
     installation: 'Complex',
   },
@@ -149,7 +150,7 @@ const tips = [
     icon: Euro,
     title: 'Onderzoek subsidieregels',
     description:
-      'Via ISDE kun je tot €6.000 subsidie krijgen. Check ook lokale regelingen en fiscale aftrek mogelijkheden.',
+      'Via ISDE wordt de subsidie berekend op basis van: startbedrag €1.025 + €225 per kW + €200 energielabelbonus (A+++). Check ook lokale regelingen en fiscale aftrek mogelijkheden.',
   },
   {
     icon: Home,
@@ -320,7 +321,7 @@ export default function KostenPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <p className="text-sm opacity-90 mb-2">Jaarlijkse Besparing</p>
-              <p className="text-4xl font-bold">€800-€2.000</p>
+              <p className="text-4xl font-bold">€700-€1.400</p>
             </div>
             <div>
               <p className="text-sm opacity-90 mb-2">Terugverdientijd</p>
@@ -374,8 +375,11 @@ export default function KostenPage() {
                 ISDE (Investeringssubsidie Duurzame Energie)
               </h3>
               <p className="text-text-muted">
-                Tot €6.000 subsidie voor een warmtepomp. Je huishouding moet aan bepaalde
-                voorwaarden voldoen en het huis moet voor 1 januari 2022 gebouwd zijn.
+                De ISDE-subsidie voor warmtepompen wordt berekend met de volgende formule:
+                startbedrag €1.025 + €225 per kW + €200 energielabelbonus (voor A++ en A+++).
+                Voor een 8kW A+++ systeem is dit bijvoorbeeld €3.025. Voor bodem-water systemen
+                kan dit tot ~€4.425 bedragen. Je huishouding moet aan bepaalde voorwaarden
+                voldoen en het huis moet voor 1 januari 2022 gebouwd zijn.
               </p>
             </div>
             <div>
@@ -423,6 +427,17 @@ export default function KostenPage() {
             ))}
           </div>
         </div>
+
+        {/* Sources */}
+        <Sources
+          laatstBijgewerkt="maart 2026"
+          sources={[
+            { naam: 'Milieu Centraal — Volledig elektrische warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/volledige-warmtepomp/', toelichting: 'Prijzen en besparing warmtepompen' },
+            { naam: 'Milieu Centraal — Hybride warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/hybride-warmtepomp/', toelichting: 'Kosten en werking hybride systemen' },
+            { naam: 'RVO.nl — ISDE Warmtepomp', url: 'https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp', toelichting: 'ISDE subsidie bedragen en voorwaarden 2026' },
+            { naam: 'Verbeterjehuis.nl — Warmtepomp', url: 'https://www.verbeterjehuis.nl/eigen-huis/verwarmen-en-koelen/volledig-elektrische-warmtepomp', toelichting: 'Kostenindicaties per type warmtepomp' },
+          ]}
+        />
       </div>
 
       {/* FAQ Schema */}

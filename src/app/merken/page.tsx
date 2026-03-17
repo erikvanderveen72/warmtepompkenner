@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import FAQSchema from '@/components/FAQSchema';
+import Sources from '@/components/Sources';
 import { BarChart3, Star, TrendingUp, Award, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -14,80 +15,80 @@ const brands = [
   {
     name: 'Daikin',
     country: 'Japan',
-    cop: 3.8,
-    rating: 4.5,
+    copRange: 'SCOP 3.5 - 4.5',
+    guarantee: '5 jaar',
     price: '€6.000 - €12.000',
     description: 'Betrouwbare en efficiënte warmtepompen met goed onderhoud.',
   },
   {
     name: 'Mitsubishi Electric',
     country: 'Japan',
-    cop: 4.0,
-    rating: 4.5,
+    copRange: 'SCOP 3.5 - 4.2',
+    guarantee: '5 jaar',
     price: '€7.000 - €14.000',
     description: 'Zeer efficiënte warmtepompen met innovatieve technologie.',
   },
   {
     name: 'NIBE',
     country: 'Zweden',
-    cop: 4.2,
-    rating: 4.6,
+    copRange: 'SCOP 4.0 - 5.0',
+    guarantee: '5 jaar',
     price: '€8.000 - €16.000',
-    description: 'Hoogste COP-waarden en duurzame kwaliteit.',
+    description: 'Hoogste SCOP-waarden en duurzame kwaliteit.',
   },
   {
     name: 'Viessmann',
     country: 'Duitsland',
-    cop: 3.9,
-    rating: 4.3,
+    copRange: 'SCOP 3.5 - 4.3',
+    guarantee: '5 jaar',
     price: '€7.500 - €14.000',
     description: 'Solide Duitse engineering met goede ondersteuning.',
   },
   {
     name: 'Vaillant',
     country: 'Duitsland',
-    cop: 3.7,
-    rating: 4.2,
+    copRange: 'SCOP 3.5 - 4.2',
+    guarantee: '5 jaar',
     price: '€7.000 - €13.000',
     description: 'Betrouwbare warmtepompen van een gevestigde fabrikant.',
   },
   {
     name: 'Bosch',
     country: 'Duitsland',
-    cop: 3.6,
-    rating: 4.0,
+    copRange: 'SCOP 3.4 - 4.0',
+    guarantee: '5 jaar',
     price: '€6.500 - €11.000',
     description: 'Goede verhouding prijs-kwaliteit en brede productlijn.',
   },
   {
     name: 'Panasonic',
     country: 'Japan',
-    cop: 3.7,
-    rating: 4.1,
+    copRange: 'SCOP 3.5 - 4.0',
+    guarantee: '5 jaar',
     price: '€6.000 - €11.000',
     description: 'Betrouwbare Japanse technologie tegen redelijke prijs.',
   },
   {
     name: 'Samsung',
     country: 'Zuid-Korea',
-    cop: 3.5,
-    rating: 3.9,
+    copRange: 'SCOP 3.3 - 3.8',
+    guarantee: '5 jaar',
     price: '€5.500 - €10.000',
     description: 'Budget-vriendelijk met degelijke prestaties.',
   },
   {
     name: 'LG',
     country: 'Zuid-Korea',
-    cop: 3.6,
-    rating: 4.0,
+    copRange: 'SCOP 3.3 - 4.0',
+    guarantee: '5 jaar',
     price: '€5.000 - €9.500',
     description: 'Zeer betaalbaar met goede efficiëntie.',
   },
   {
     name: 'Toshiba',
     country: 'Japan',
-    cop: 3.5,
-    rating: 3.8,
+    copRange: 'SCOP 3.3 - 3.8',
+    guarantee: '3 jaar',
     price: '€5.500 - €10.000',
     description: 'Solide prestatie voor een redelijke prijs.',
   },
@@ -97,24 +98,24 @@ const topBrands = [
   {
     name: 'NIBE',
     rank: 1,
-    cop: 4.2,
-    rating: 4.6,
-    strengths: ['Hoogste COP-waarden (4.2)', 'Zeer duurzaam', 'Beste lange termijn prestaties'],
+    copRange: 'SCOP 4.0 - 5.0',
+    guarantee: '5 jaar',
+    strengths: ['Hoogste SCOP-bereik (tot 5.0)', 'Zeer duurzaam', 'Beste lange termijn prestaties'],
     ideal: 'Beste keuze voor maximale besparing',
   },
   {
     name: 'Mitsubishi Electric',
     rank: 2,
-    cop: 4.0,
-    rating: 4.5,
+    copRange: 'SCOP 3.5 - 4.2',
+    guarantee: '5 jaar',
     strengths: ['Innovatieve technologie', 'Zeer betrouwbaar', 'Uitstekende klantenservice'],
     ideal: 'Ideaal voor modernisering',
   },
   {
     name: 'Daikin',
     rank: 3,
-    cop: 3.8,
-    rating: 4.5,
+    copRange: 'SCOP 3.5 - 4.5',
+    guarantee: '5 jaar',
     strengths: ['Wereldwijd toonaangevend', 'Uitgebreid servicecentrum', 'Goede verhouding prijs-kwaliteit'],
     ideal: 'Veilige keuze met sterke ondersteuning',
   },
@@ -123,43 +124,34 @@ const topBrands = [
 const faqItems = [
   {
     question: 'Welk warmtepompmerk is het beste?',
-    answer: 'Er is geen "best" merk voor iedereen. NIBE leidt in efficiëntie (COP 4.2), Mitsubishi Electric blinkt uit in technologie, en Daikin biedt de beste ondersteuning. Kies op basis van je budget, woning en prioriteiten.',
+    answer: 'Er is geen "best" merk voor iedereen. NIBE leidt in SCOP-bereik (tot 5.0), Mitsubishi Electric blinkt uit in technologie, en Daikin biedt sterke ondersteuning. Kies op basis van je budget, woning en prioriteiten. Het type warmtepomp (lucht-water vs. bodem-water) is vaak belangrijker dan het merk.',
   },
   {
-    question: 'Wat is het verschil tussen merken in COP-waarde?',
-    answer: 'COP (Coefficient of Performance) geeft aan hoeveel warmte een warmtepomp genereert per eenheid energie. NIBE (4.2) en Mitsubishi Electric (4.0) zijn zeer efficiënt. Een hoger COP betekent lagere energierekeningen. Het verschil tussen 3.5 en 4.2 is ongeveer 20% meer besparing.',
+    question: 'Wat is het verschil tussen SCOP-waarden van merken?',
+    answer: 'SCOP (Seasonal Coefficient of Performance) geeft aan hoeveel warmte een warmtepomp gemiddeld per seizoen genereert per eenheid energie bij W35 (vloerverwarming). NIBE bereikt tot 5.0, Mitsubishi Electric tot 4.2. Een hoger SCOP betekent lagere energierekeningen. Het verschil tussen SCOP 3.5 en 4.5 is ongeveer 25% meer besparing.',
+  },
+  {
+    question: 'Waarom laten jullie geen beoordelingen zien?',
+    answer: 'Beoordelingen die je online vindt zijn vaak niet geverifieerd. De Consumentenbond test warmtepompen, maar hun ratings zijn achter een betaalmuur. In plaats daarvan tonen we de echte SCOP-bereiken van fabrikanten en standaardgarantieperiodes. Deze zijn verifieerbaar en eerlijker.',
   },
   {
     question: 'Zijn Japanse merken beter dan Duitse merken?',
-    answer: 'Beide hebben voordelen. Japanse merken (Daikin, Mitsubishi, Panasonic) blinken uit in efficiëntie en innovatie. Duitse merken (Viessmann, Vaillant, Bosch) zijn berucht om betrouwbaarheid en service. Kies wat belangrijk is voor jou.',
+    answer: 'Beide hebben voordelen. Japanse merken (Daikin, Mitsubishi, Panasonic) blinken uit in efficiëntie. Duitse merken (Viessmann, Vaillant, Bosch) zijn berucht om betrouwbaarheid en service. Kies op basis van wat voor jouw situatie belangrijk is.',
   },
   {
     question: 'Moet ik een duur merk kiezen voor betere kwaliteit?',
-    answer: 'Niet altijd. Veel betaalmerk-opties (Samsung, LG, Toshiba) hebben vergelijkbare garanties en betrouwbaarheid. Het verschil zit meer in efficiëntie (COP) en langetermijnondersteuning. Een duurder merk kan meer jaren besparing opleveren.',
+    answer: 'Niet altijd. Veel betaalmerk-opties (Samsung, LG, Toshiba) bieden vergelijkbare garanties. Het verschil zit in SCOP (lagere energierekeningen) en langetermijnondersteuning. Een duurder, efficiënter merk kan dankzij lagere stroomrekeningen sneller terugbetaald zijn.',
   },
   {
     question: 'Welke merken zijn goed beschikbaar in Nederland?',
-    answer: 'Daikin, Mitsubishi Electric, NIBE, Viessmann, Vaillant en Bosch zijn ruim beschikbaar bij installateurs. Panasonic, Samsung, LG en Toshiba zijn minder vertegenwoordigd maar wel leverbaar.',
+    answer: 'Daikin, Mitsubishi Electric, NIBE, Viessmann, Vaillant en Bosch zijn ruim beschikbaar bij installateurs. Panasonic, Samsung, LG en Toshiba zijn minder vertegenwoordigd maar wel leverbaar. Vraag altijd naar beschikbaarheid en onderhoudsservice in jouw regio.',
   },
   {
     question: 'Hoelang is de garantie bij verschillende merken?',
-    answer: 'De meeste fabrikanten bieden 2-5 jaar garantie op defecten. Premiummerken zoals NIBE bieden tot 10 jaar garantie op bepaalde componenten. Controleer altijd de exacte voorwaarden met je installateur.',
+    answer: 'De meeste fabrikanten bieden 5 jaar standaardgarantie. Toshiba biedt 3 jaar. Veel merken bieden verlengde garanties tot 7-10 jaar tegen extra kosten. Controleer altijd de exacte voorwaarden en of registratie verplicht is.',
   },
 ];
 
-const renderStars = (rating: number) => {
-  const stars = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < Math.floor(rating)) {
-      stars.push('★');
-    } else if (i < rating) {
-      stars.push('◆');
-    } else {
-      stars.push('☆');
-    }
-  }
-  return stars.join('');
-};
 
 export default function MarkenPage() {
   return (
@@ -189,8 +181,8 @@ export default function MarkenPage() {
               <tr className="bg-primary text-white">
                 <th className="px-6 py-4 text-left font-semibold">Merk</th>
                 <th className="px-6 py-4 text-left font-semibold">Land</th>
-                <th className="px-6 py-4 text-center font-semibold">COP</th>
-                <th className="px-6 py-4 text-center font-semibold">Beoordeling</th>
+                <th className="px-6 py-4 text-center font-semibold">SCOP-bereik</th>
+                <th className="px-6 py-4 text-center font-semibold">Garantie</th>
                 <th className="px-6 py-4 text-left font-semibold">Prijs (incl.)</th>
               </tr>
             </thead>
@@ -202,20 +194,23 @@ export default function MarkenPage() {
                   <td className="px-6 py-4 text-center">
                     <div className="flex items-center justify-center gap-2">
                       <Zap className="w-4 h-4 text-amber-500" />
-                      <span className="font-semibold text-text-main">{brand.cop}</span>
+                      <span className="font-semibold text-text-main">{brand.copRange}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      <span className="text-amber-500 font-semibold">{renderStars(brand.rating)}</span>
-                      <span className="text-text-muted text-sm">{brand.rating}</span>
-                    </div>
+                    <span className="text-text-main text-sm">{brand.guarantee}</span>
                   </td>
                   <td className="px-6 py-4 text-text-main font-medium">{brand.price}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+          <p className="text-sm text-blue-900">
+            <strong>SCOP-waarden:</strong> De SCOP-waarden zijn seizoensgemiddelden bij W35 (vloerverwarming, 35°C aanvoertemperatuur). Bij hogere temperaturen (radiatoren, 55°C) ligt de SCOP lager. Raadpleeg de fabrikant productbladen voor exacte waarden per model.
+          </p>
         </div>
 
         <p className="text-sm text-text-muted mt-4">
@@ -244,15 +239,12 @@ export default function MarkenPage() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-border">
                 <div>
-                  <p className="text-sm text-text-muted mb-1">Efficiëntie (COP)</p>
-                  <p className="text-2xl font-bold text-primary">{brand.cop}</p>
+                  <p className="text-sm text-text-muted mb-1">Efficiëntie (SCOP)</p>
+                  <p className="text-2xl font-bold text-primary">{brand.copRange}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-text-muted mb-1">Beoordeling</p>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xl text-amber-500">{renderStars(brand.rating)}</span>
-                    <span className="font-bold text-text-main">{brand.rating}</span>
-                  </div>
+                  <p className="text-sm text-text-muted mb-1">Garantie</p>
+                  <p className="text-2xl font-bold text-primary">{brand.guarantee}</p>
                 </div>
               </div>
 
@@ -361,6 +353,17 @@ export default function MarkenPage() {
           ))}
         </div>
       </section>
+
+      {/* Sources */}
+      <Sources
+        laatstBijgewerkt="maart 2026"
+        sources={[
+          { naam: 'Daikin Nederland', url: 'https://www.daikin.nl/nl_nl/consument/products-and-advice/product-categories/heat-pumps.html', toelichting: 'Daikin warmtepomp modellen en specificaties' },
+          { naam: 'NIBE Nederland', url: 'https://www.nibe.eu/nl-nl/producten/warmtepompen', toelichting: 'NIBE warmtepomp specificaties en SCOP-waarden' },
+          { naam: 'Milieu Centraal — Welke warmtepompen zijn er?', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/welke-warmtepompen-zijn-er/', toelichting: 'Onafhankelijk overzicht warmtepomp typen' },
+          { naam: 'RVO.nl — Meldcodelijst warmtepompen', url: 'https://www.rvo.nl/subsidies-financiering/isde/meldcodelijsten/warmtepompen', toelichting: 'Officiële lijst goedgekeurde warmtepompen met SCOP' },
+        ]}
+      />
 
       {/* FAQ */}
       <section className="bg-surface-alt py-8">

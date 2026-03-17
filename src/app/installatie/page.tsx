@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import FAQSchema from '@/components/FAQSchema';
+import Sources from '@/components/Sources';
 import { Wrench, Clock, CheckCircle, AlertCircle, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ const faqItems = [
   },
   {
     question: 'Hoeveel kost de installatie van een warmtepomp?',
-    answer: 'Installatiekosten variëren: lucht-lucht €2.000-€4.000, hybride €3.500-€7.000, lucht-water €6.000-€12.000, bodem-water €15.000-€25.000. Dit zijn complete kosten inclusief apparatuur. Subsidies kunnen 20-35% van deze kosten dekken.',
+    answer: 'Installatiekosten variëren: lucht-lucht €2.000-€4.000, hybride €4.000-€7.000, lucht-water €5.000-€12.000, bodem-water €15.000-€30.000. Dit zijn complete kosten inclusief apparatuur. Subsidies kunnen 20-35% van deze kosten dekken.',
   },
   {
     question: 'Wat is het verschil tussen een professionele installateur en een handyman?',
@@ -244,6 +245,15 @@ export default function InstallatiePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Sources */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <Sources laatstBijgewerkt="maart 2026" sources={[
+          { naam: 'RVO.nl — ISDE Warmtepomp', url: 'https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp', toelichting: 'Subsidie en eisen aan installatie' },
+          { naam: 'Milieu Centraal — Veelgestelde vragen warmtepompen', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/veelgestelde-vragen-over-warmtepompen/', toelichting: 'Installatie-informatie en veelgestelde vragen' },
+          { naam: 'Verbeterjehuis.nl — Warmtepomp', url: 'https://www.verbeterjehuis.nl/eigen-huis/verwarmen-en-koelen/volledig-elektrische-warmtepomp', toelichting: 'Installatieproces en kostenindicaties' },
+        ]} />
       </section>
 
       {/* FAQ */}

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import FAQSchema from '@/components/FAQSchema';
+import Sources from '@/components/Sources';
 import { Thermometer, Check, X } from 'lucide-react';
 
 export const revalidate = 3600;
@@ -48,7 +49,7 @@ const heatPumpTypes = [
   {
     name: 'Lucht-Water',
     cop: 3.5,
-    priceMin: 6000,
+    priceMin: 5000,
     priceMax: 12000,
     description:
       'De meest voorkomende keuze in Nederland. Haalt warmte uit buitenlucht voor verwarming en warm water.',
@@ -70,7 +71,7 @@ const heatPumpTypes = [
     name: 'Bodem-Water',
     cop: 4.5,
     priceMin: 15000,
-    priceMax: 25000,
+    priceMax: 30000,
     description:
       'Haalt warmte uit de grond via buizen. Zeer efficient vanwege stabiele grondtemperatuur.',
     voordelen: [
@@ -91,7 +92,7 @@ const heatPumpTypes = [
   {
     name: 'Hybride',
     cop: 3.0,
-    priceMin: 3500,
+    priceMin: 4000,
     priceMax: 7000,
     description:
       'Combineert warmtepomp met bestaande gasboiler. Schakelt automatisch over als nodig.',
@@ -161,9 +162,9 @@ const decisionFactors = [
     title: 'Budget',
     items: [
       { type: 'Lucht-Lucht', text: '€1.500-€4.000 (minst duur)' },
-      { type: 'Hybride', text: '€3.500-€7.000' },
-      { type: 'Lucht-Water', text: '€6.000-€12.000' },
-      { type: 'Bodem-Water', text: '€15.000-€25.000' },
+      { type: 'Hybride', text: '€4.000-€7.000' },
+      { type: 'Lucht-Water', text: '€5.000-€12.000' },
+      { type: 'Bodem-Water', text: '€15.000-€30.000' },
       { type: 'Water-Water', text: '€18.000-€30.000 (meest duur)' },
     ],
   },
@@ -415,6 +416,15 @@ export default function SoortenPage() {
               </ul>
             </div>
           </div>
+        </section>
+
+        {/* Sources */}
+        <section className="mb-16">
+          <Sources laatstBijgewerkt="maart 2026" sources={[
+            { naam: 'Milieu Centraal — Welke warmtepompen zijn er?', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/welke-warmtepompen-zijn-er/', toelichting: 'Onafhankelijk overzicht alle warmtepomp typen' },
+            { naam: 'Milieu Centraal — Volledig elektrische warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/volledige-warmtepomp/', toelichting: 'Kosten en rendement full-electric warmtepompen' },
+            { naam: 'Milieu Centraal — Hybride warmtepomp', url: 'https://www.milieucentraal.nl/energie-besparen/duurzaam-verwarmen-en-koelen/hybride-warmtepomp/', toelichting: 'Kosten en werking hybride warmtepompen' },
+          ]} />
         </section>
 
         {/* FAQ Section */}

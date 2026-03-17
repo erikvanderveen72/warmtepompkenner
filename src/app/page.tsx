@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 
 const faqItems = [
-  { question: 'Wat kost een warmtepomp in 2026?', answer: 'De kosten variëren per type: een hybride warmtepomp kost €3.500-€7.000, een lucht-water warmtepomp €6.000-€12.000, en een bodem-water warmtepomp €15.000-€25.000. Dit is inclusief installatie maar exclusief eventueel benodigde aanpassingen aan je woning.' },
-  { question: 'Hoeveel subsidie krijg ik voor een warmtepomp?', answer: 'Via de ISDE-regeling ontvang je in 2026 tot €3.675 subsidie voor een volledig elektrische warmtepomp en tot €1.500 voor een hybride warmtepomp. Je kunt de subsidie aanvragen tot 6 maanden na installatie.' },
-  { question: 'Hoeveel bespaar ik met een warmtepomp op mijn gasrekening?', answer: 'Met een gemiddeld gasverbruik van 1.200 m³ bespaar je circa €700-€1.100 per jaar, afhankelijk van het type warmtepomp en de isolatie van je woning. Een bodem-water warmtepomp bespaart het meest.' },
+  { question: 'Wat kost een warmtepomp in 2026?', answer: 'De kosten variëren per type: een hybride warmtepomp kost €4.000-€7.000, een lucht-water warmtepomp €5.000-€12.000, en een bodem-water warmtepomp €15.000-€30.000 inclusief installatie. Bron: Milieu Centraal.' },
+  { question: 'Hoeveel subsidie krijg ik voor een warmtepomp?', answer: 'Via de ISDE-regeling (RVO.nl) wordt subsidie berekend op basis van type, vermogen en energielabel. Voorbeeld: een 8 kW lucht-water warmtepomp met A+++ label levert ca. €3.025 subsidie op. Je ontvangt altijd minimaal €500.' },
+  { question: 'Hoeveel bespaar ik met een warmtepomp op mijn gasrekening?', answer: 'Bij een gemiddeld gasverbruik van ca. 1.040 m³ (CBS/Milieu Centraal) bespaar je circa €700-€1.400 per jaar, afhankelijk van het type warmtepomp, energieprijzen en de isolatie van je woning.' },
   { question: 'Welk type warmtepomp past het beste bij mijn woning?', answer: 'Voor goed geïsoleerde woningen is een lucht-water warmtepomp ideaal. Bij matige isolatie is een hybride warmtepomp een slimme tussenstap. Nieuwbouw profiteert het meest van een bodem-water warmtepomp.' },
-  { question: 'Is warmtepompkenner.nl onafhankelijk?', answer: 'Ja, Warmtepompkenner.nl is 100% onafhankelijk. Wij ontvangen geen provisie van fabrikanten of installateurs. Onze informatie is gebaseerd op officiële bronnen zoals RVO.nl en Milieu Centraal.' },
+  { question: 'Is warmtepompkenner.nl onafhankelijk?', answer: 'Ja, Warmtepompkenner.nl is 100% onafhankelijk. Wij ontvangen geen provisie van fabrikanten of installateurs. Onze informatie is gebaseerd op officiële bronnen zoals RVO.nl, Milieu Centraal en CBS.' },
   { question: 'Hoe lang duurt de installatie van een warmtepomp?', answer: 'De installatie van een lucht-water warmtepomp duurt gemiddeld 1-2 dagen. Een hybride warmtepomp kan in 1 dag geïnstalleerd worden. Een bodem-water warmtepomp vereist extra boringen en duurt 3-5 dagen.' },
 ];
 

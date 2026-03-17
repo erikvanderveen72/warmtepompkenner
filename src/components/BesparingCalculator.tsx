@@ -4,7 +4,7 @@ import { berekenBesparing, BesparingResult } from '@/lib/calculations';
 import Calculator from './Calculator';
 
 export default function BesparingCalculator() {
-  const [gasverbruik, setGasverbruik] = useState(1200);
+  const [gasverbruik, setGasverbruik] = useState(1040); // CBS/Milieu Centraal gemiddelde
   const [aanschafkosten, setAanschafkosten] = useState(8000);
   const [cop, setCop] = useState(3.5);
 
@@ -123,7 +123,7 @@ export default function BesparingCalculator() {
         </div>
 
         <div className="bg-sky-50 border border-sky-200 rounded-lg p-3 text-sm text-sky-900">
-          <strong>Tip:</strong> Het gemiddelde Nederlandse huishouden verbruikt circa 1.200 m³ gas per jaar. Check je jaarafrekening voor je exacte verbruik.
+          <strong>Tip:</strong> Het gemiddelde Nederlandse huishouden verbruikt circa 1.040 m³ gas per jaar (bron: CBS/Milieu Centraal). Check je jaarafrekening voor je exacte verbruik.
         </div>
       </div>
     </Calculator>

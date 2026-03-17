@@ -28,7 +28,7 @@ export async function getWarmtepompTypes(): Promise<WarmtepompType[]> {
 export async function getWarmtepompMerken(): Promise<WarmtepompMerk[]> {
   if (!supabase) return warmtepompMerken;
   try {
-    const { data, error } = await supabase.from('warmtepomp_merken').select('*').order('beoordeling', { ascending: false });
+    const { data, error } = await supabase.from('warmtepomp_merken').select('*').order('naam', { ascending: true });
     if (error) return warmtepompMerken;
     return data?.length ? data : warmtepompMerken;
   } catch { return warmtepompMerken; }

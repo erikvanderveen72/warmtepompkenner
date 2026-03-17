@@ -21,8 +21,8 @@ export function berekenBesparing(
   gasPrijs: number = besparingParams.gasPrijsPerM3,
   elektraPrijs: number = besparingParams.elektraPrijsPerKwh,
 ): BesparingResult {
-  // 1m3 gas = ~8,8 kWh warmte
-  const kWhWarmte = gasverbruikM3 * 8.8;
+  // 1 m³ gas ≈ 8,79 kWh warmte (onderwaarde, bron: pure-energie.nl/kennisbank/calorische-waarde-van-gas)
+  const kWhWarmte = gasverbruikM3 * 8.79;
   const huidigGaskosten = round(gasverbruikM3 * gasPrijs);
 
   // Warmtepomp verbruikt kWhWarmte / COP aan elektriciteit
@@ -37,8 +37,8 @@ export function berekenBesparing(
   // Terugverdientijd
   const terugverdientijd = jaarlijkseBesparing > 0 ? round(aanschafkosten / jaarlijkseBesparing, 1) : 0;
 
-  // CO2 besparing: 1m3 gas = 1,785 kg CO2
-  const co2Besparing = round(gasverbruikM3 * 1.785);
+  // CO2 besparing: 1 m³ gas = 1,88 kg CO2 (bron: co2emissiefactoren.nl, inclusief voorketen)
+  const co2Besparing = round(gasverbruikM3 * 1.88);
 
   return {
     huidigGaskosten,

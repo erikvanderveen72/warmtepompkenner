@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import FAQSchema from '@/components/FAQSchema';
+import Sources from '@/components/Sources';
 import BesparingCalculator from '@/components/BesparingCalculator';
 import { TrendingDown, Zap, Leaf, Lightbulb, DollarSign, Gauge } from 'lucide-react';
 
@@ -115,7 +116,10 @@ export default function BesparingPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-3xl font-bold text-text-main mb-2 text-center">Besparing per type warmtepomp</h2>
         <p className="text-text-muted text-center max-w-2xl mx-auto mb-8">
-          Gemiddelde jaarlijkse besparing bij 1.200 m³ gasverbruik (maart 2026 prijzen)
+          Gemiddelde jaarlijkse besparing bij 1.040 m³ gasverbruik (maart 2026 prijzen)
+        </p>
+        <p className="text-text-muted text-center max-w-2xl mx-auto mb-8 text-sm italic">
+          Milieu Centraal rekent met gemiddelde gasprijs van €1,37/m³ en €0,21/kWh elektra (projectie 2026-2040)
         </p>
 
         <div className="overflow-x-auto">
@@ -141,7 +145,7 @@ export default function BesparingPage() {
                     <p className="font-bold text-emerald-700">€500-€700</p>
                   </div>
                 </td>
-                <td className="px-6 py-4 text-text-muted">~2,0-2,5</td>
+                <td className="px-6 py-4 text-text-muted">SCOP 2.5-3.5</td>
                 <td className="px-6 py-4 text-text-muted">6-9 jaar</td>
               </tr>
               <tr className="border-b border-border hover:bg-stone-50 transition-colors">
@@ -201,8 +205,8 @@ export default function BesparingPage() {
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 border border-emerald-100">
               <p className="text-sm text-text-muted mb-2">CO2-besparing per jaar</p>
-              <p className="text-3xl font-bold text-emerald-600">2.000-2.500 kg</p>
-              <p className="text-xs text-text-muted mt-2">Per woning met gemiddeld gasverbruik</p>
+              <p className="text-3xl font-bold text-emerald-600">ca. 1.500-2.000 kg</p>
+              <p className="text-xs text-text-muted mt-2">Per woning met gemiddeld gasverbruik (1.040 m³)</p>
             </div>
             <div className="bg-white rounded-xl p-6 border border-emerald-100">
               <p className="text-sm text-text-muted mb-2">CO2-reductie</p>
@@ -302,6 +306,16 @@ export default function BesparingPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Sources */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <Sources laatstBijgewerkt="maart 2026" sources={[
+          { naam: 'Milieu Centraal — Gemiddeld energieverbruik', url: 'https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/', toelichting: 'Gemiddeld gasverbruik Nederlandse huishoudens' },
+          { naam: 'CBS — Energierekening', url: 'https://www.cbs.nl/nl-nl/longread/aanvullende-statistische-diensten/2026/de-energierekening-januari-2026/technische-toelichting', toelichting: 'Actuele energieprijzen en verbruikcijfers' },
+          { naam: 'CO2emissiefactoren.nl', url: 'https://co2emissiefactoren.nl/', toelichting: 'CO2-emissiefactoren aardgas (1,88 kg/m³)' },
+          { naam: 'Milieu Centraal — Warmtepomp besparing', url: 'https://www.hier.nu/warmtepomp-bespaarchecker', toelichting: 'Warmtepomp bespaarchecker' },
+        ]} />
       </section>
 
       {/* FAQ Section */}
